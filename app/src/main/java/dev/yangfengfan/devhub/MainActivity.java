@@ -1,17 +1,26 @@
 package dev.yangfengfan.devhub;
 
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
+import dev.yangfengfan.devhub.base.BaseActivity;
 
 /**
  * @author yangfengfandev@gmail.com 2020-07-26
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutResId() {
+        return R.layout.activity_main;
     }
+
+    @Override
+    protected void initDate() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
 }
