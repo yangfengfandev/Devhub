@@ -16,6 +16,7 @@
 
 package dev.yangfengfan.devhub.base;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.LayoutRes;
@@ -41,4 +42,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initDate();
 
     protected abstract void initView();
+
+    protected Context getContext() {
+        return this;
+    }
 }
