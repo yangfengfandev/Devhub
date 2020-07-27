@@ -16,14 +16,9 @@
 
 package dev.yangfengfan.devhub.ui.about;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import dev.yangfengfan.devhub.R;
 import dev.yangfengfan.devhub.base.BaseFragment;
@@ -34,11 +29,19 @@ import dev.yangfengfan.devhub.base.BaseFragment;
 public class AboutFragment extends BaseFragment {
     private AboutViewModel aboutViewModel;
 
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        aboutViewModel = ViewModelProviders.of(this).get(AboutViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.fragment_about;
+    }
+
+    @Override
+    protected void initData() {
+        aboutViewModel = new ViewModelProvider(this).get(AboutViewModel.class);
+    }
+
+    @Override
+    protected void initView() {
+        final TextView textView = findViewById(R.id.text_about);
         aboutViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
     }
 }
